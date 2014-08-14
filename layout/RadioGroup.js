@@ -173,7 +173,7 @@ declare("dojox.layout.RadioGroupSlide", RadioGroup, {
 	//		A z-index to apply to the incoming pane
 	zTop: 99,
 	
-	constructor: function(){
+	postCreate: function(){
 		if(lang.isString(this.easing)){
 			this.easing = lang.getObject(this.easing);
 		}
