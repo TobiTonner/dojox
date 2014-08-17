@@ -202,20 +202,21 @@ declare("dojox.layout.RadioGroupSlide", RadioGroup, {
 			val = (rB ? "-" : "") + (this._size[rA ? "h" : "w" ] + 20) + "px";
 			
 		html.style(page.domNode, prop, val);
+        page.domNode.style.display = "block";
 
 	},
 
 	_showChild: function(page){
 		// summary:
 		//		Slide in the selected child widget
-		
+
 		var children = this.getChildren();
 		page.isFirstChild = (page == children[0]);
 		page.isLastChild = (page == children[children.length-1]);
 		page.selected = true;
 
 		html.style(page.domNode,{
-			zIndex: this.zTop, display:""
+			zIndex: this.zTop, display: "none"
 		});
 
 		if(this._anim && this._anim.status()=="playing"){
