@@ -184,7 +184,7 @@ declare("dojox.layout.RadioGroupSlide", RadioGroup, {
 		//		set the child out of view immediately after being hidden
 
 		// FIXME: is there a real "size" floating around always?
-		if(!this._size){ return; } 
+		if(!this._size){ return; }
 		
 		// there should be a contest: obfuscate this function as best you can.
 		var rA = true, rB = true;
@@ -202,7 +202,9 @@ declare("dojox.layout.RadioGroupSlide", RadioGroup, {
 			val = (rB ? "-" : "") + (this._size[rA ? "h" : "w" ] + 20) + "px";
 			
 		html.style(page.domNode, prop, val);
-        page.domNode.style.display = "block";
+        html.style(page.domNode,{
+            display: "block"
+        });
 
 	},
 
@@ -216,7 +218,7 @@ declare("dojox.layout.RadioGroupSlide", RadioGroup, {
 		page.selected = true;
 
 		html.style(page.domNode,{
-			zIndex: this.zTop, display: "none"
+			zIndex: this.zTop, display: "none", opacity: 0
 		});
 
 		if(this._anim && this._anim.status()=="playing"){
@@ -227,7 +229,8 @@ declare("dojox.layout.RadioGroupSlide", RadioGroup, {
 			node:page.domNode,
 			properties: {
 				left: 0,
-				top: 0
+				top: 0,
+                opacity: 1
 			},
 			duration: this.duration,
 			easing: this.easing,
@@ -251,7 +254,7 @@ declare("dojox.layout.RadioGroupSlide", RadioGroup, {
 		}
 
 	}
-	
+
 });
 
 declare("dojox.layout._RadioButton",[Widget,Templated,Contained],{
