@@ -218,7 +218,10 @@ declare("dojox.layout.RadioGroupSlide", RadioGroup, {
 		page.selected = true;
 
 		html.style(page.domNode,{
-			zIndex: this.zTop, display: "none", opacity: 0
+			zIndex: this.zTop,
+            display: "none",
+            opacity: 0,
+            visibility: "visible"
 		});
 
 		if(this._anim && this._anim.status()=="playing"){
@@ -251,7 +254,7 @@ declare("dojox.layout.RadioGroupSlide", RadioGroup, {
 
         html.style(page.domNode,{
             zIndex: this.zTop - 1,
-            display: "none"
+            visibility: "hidden"
         });
 
 		if(page.onHide){
