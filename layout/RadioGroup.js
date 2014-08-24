@@ -248,7 +248,12 @@ declare("dojox.layout.RadioGroupSlide", RadioGroup, {
 		//		reset the position of the hidden pane out of sight
 
 		page.selected = false;
-		page.domNode.style.zIndex = this.zTop - 1;
+
+        html.style(page.domNode,{
+            zIndex: this.zTop - 1,
+            display: "none"
+        });
+
 		if(page.onHide){
 			page.onHide();
 		}
